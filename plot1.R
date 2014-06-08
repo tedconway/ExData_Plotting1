@@ -1,0 +1,6 @@
+hpc <- read.csv("household_power_consumption.txt", header=TRUE, sep=";", stringsAsFactors=F)
+hpc2 <- subset(hpc, hpc$Date %in% c("1/2/2007", "2/2/2007"))
+hpc3 <- subset(hpc2, hpc2$Global_active_power != "?")
+png("plot1.png", width = 480, height = 480)
+hist(as.numeric(hpc3$Global_active_power), col="red", xlab="Global Active Power (kilowatts)", ylab="Frequency", main="Global Active Power") 
+dev.off()
